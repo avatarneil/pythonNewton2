@@ -1,22 +1,22 @@
-import math
+from math import *
 v0 = 100
-vx = v0 * math.cos(30)
-vy = v0 * math.sin(30)
+theta = 30*pi/180
+vx = v0 * cos(theta)
+vy = v0 * sin(theta)
 t = 0
-dt = .1
+dt = .001
 m = .5
 c = 1
-d = .5
+d = .05
 x = 0
 y = 0
 g = 9.81
 
-while (t < 20):
-    vx = vx - ((c*d**2) * vx*dt * math.sqrt(vx**2+vy**2))/m
-    vy = vy -(g*dt) - ((c*d**2) * vy*dt * math.sqrt(vx**2+vy**2))/m
+while (y >= 0):
+    print (t,x,y,vy)
     x = x + vx * dt
-    y = y + vy * dt
+    y = y + vy * dt      
+    vx = vx - ((c*d**2) * vx*dt * sqrt(vx**2+vy**2))/m
+    vy = vy -(g*dt) - ((c*d**2) * vy*dt * sqrt(vx**2+vy**2))/m
     t=t+dt
-    print (x)
-    print (y)
-    print (t)
+ 
