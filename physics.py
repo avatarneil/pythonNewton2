@@ -12,14 +12,16 @@ d = .05
 x = 0
 y = 0
 g = 9.81
+xlist = [0]
+ylist = [0]
 
 while (y >= 0):
-    plt.plot(x,y)
-    #print (t,x,y,vy)
+    xlist.append(x)
+    ylist.append(y)
     x = x + vx * dt
     y = y + vy * dt      
     vx = vx - ((c*d**2) * vx*dt * sqrt(vx**2+vy**2))/m
     vy = vy -(g*dt) - ((c*d**2) * vy*dt * sqrt(vx**2+vy**2))/m
     t=t+dt
-    plt.show()
-    plt.pause(0.0001)
+plt.plot(xlist,ylist)
+plt.draw()
